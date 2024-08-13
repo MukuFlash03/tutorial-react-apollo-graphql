@@ -4,6 +4,7 @@ import Header from './Header';
 import LinkList from './LinkList';
 import CreateLink from './CreateLink';
 import Login from './Login';
+import Search from './Search';
 
 class App extends Component {
   render() {
@@ -24,6 +25,10 @@ class App extends Component {
               <Route
                 path="/login"
                 element={<Login />}
+              />
+              <Route
+                path="/search"
+                element={<Search />}
               />
             </Routes>
           </div>

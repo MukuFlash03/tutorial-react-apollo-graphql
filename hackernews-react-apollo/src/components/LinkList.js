@@ -88,7 +88,7 @@ const getQueryVariables = (isNewPage, page) => {
   const skip = isNewPage ? (page - 1) * LINKS_PER_PAGE : 0;
   const take = isNewPage ? LINKS_PER_PAGE : 100;
   const orderBy = { createdAt: 'desc' };
-  return { take, skip, orderBy };
+  return { take, skip, orderBy, page };
 };
 
 const getLinksToRender = (isNewPage, data) => {
@@ -117,18 +117,14 @@ const LinkList = ({ client }) => {
   );
   const pageIndex = page ? (page - 1) * LINKS_PER_PAGE : 0;
 
-
-
-
-  const {
-    data,
-    loading,
-    error,
-    subscribeToMore
-  } = useQuery(FEED_QUERY, {
+  const { data, loading, error, subscribeToMore, refetch } = useQuery(FEED_QUERY, {
     variables: getQueryVariables(isNewPage, page),
+    fetchPolicy: 'cache-and-network',
   });
 
+  React.useEffect(() => {
+    refetch(getQueryVariables(isNewPage, page));
+  }, [isNewPage, page, refetch]);
 
   subscribeToMore({
     document: NEW_LINKS_SUBSCRIPTION,
@@ -176,7 +172,9 @@ const LinkList = ({ client }) => {
                 className="pointer mr2"
                 onClick={() => {
                   if (page > 1) {
-                    navigate(`/new/${page - 1}`);
+                    const prevPage = page - 1;
+                    navigate(`/new/${prevPage}`);
+                    refetch(getQueryVariables(isNewPage, prevPage));
                   }
                 }}
               >
@@ -185,12 +183,10 @@ const LinkList = ({ client }) => {
               <div
                 className="pointer"
                 onClick={() => {
-                  if (
-                    page <=
-                    data.feed.count / LINKS_PER_PAGE
-                  ) {
+                  if (page <= data.feed.count / LINKS_PER_PAGE) {
                     const nextPage = page + 1;
                     navigate(`/new/${nextPage}`);
+                    refetch(getQueryVariables(isNewPage, nextPage));
                   }
                 }}
               >
@@ -205,28 +201,3 @@ const LinkList = ({ client }) => {
 };
 
 export default LinkList;
-/*
-const linksToRender = [
-  {
-    id: 'link-id-1',
-    description:
-      'Prisma gives you a powerful database toolkit 😎',
-    url: 'https://prisma.io'
-  },
-  {
-    id: 'link-id-2',
-    description: 'The best GraphQL client',
-    url: 'https://www.apollographql.com/docs/react/'
-  }
-];
-
-return (
-  <>
-    <div>
-      {linksToRender.map((link) => (
-        <Link key={link.id} link={link} />
-      ))}
-    </div>
-  </>
-)
-  */

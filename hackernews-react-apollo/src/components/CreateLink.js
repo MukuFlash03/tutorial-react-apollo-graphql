@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { FEED_QUERY } from './LinkList';
-import { AUTH_TOKEN, LINKS_PER_PAGE } from '../constants';
+import { LINKS_PER_PAGE } from '../constants';
 
 const take = LINKS_PER_PAGE;
 const skip = 0;

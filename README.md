@@ -1,2 +1,4 @@
 # Fullstack React + Apollo + GraphQL + Prisma Web App
 Tutorial React + Apollo + GraphQL + Prisma (link: https://www.howtographql.com/react-apollo/1-getting-started/)
+
+<img width="1440" alt="Screenshot 2024-08-12 at 10 55 30 PM" src="https://github.com/user-attachments/assets/891ff6c2-4544-48bb-a67a-3e9be865e650">

@@ -1,8 +1,9 @@
-# Fullstack React + Apollo + GraphQL + Prisma Web App
+# Fullstack Web App - Hackernews Clone
 Tutorial React + Apollo + GraphQL + Prisma (link: https://www.howtographql.com/react-apollo/1-getting-started/)
 
 Concepts explored / Features built: <br><br>
 GraphQL: Queries, Mutations, Resolvers<br>
+Database: Prisma ORM, SQLite
 Apollo Client + Server<br>
 React: Routing, Navigate<br>
 Authentication: Tokens, LocalStorage<br>

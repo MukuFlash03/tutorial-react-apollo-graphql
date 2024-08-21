@@ -3,7 +3,7 @@ React + Apollo + GraphQL + Prisma ([tutorial link](https://www.howtographql.com/
 
 Concepts explored / Features built: <br><br>
 GraphQL: Queries, Mutations, Resolvers<br>
-Database: Prisma ORM, SQLite
+Database: Prisma ORM, SQLite<br>
 Apollo Client + Server<br>
 React: Routing, Navigate<br>
 Authentication: Tokens, LocalStorage<br>

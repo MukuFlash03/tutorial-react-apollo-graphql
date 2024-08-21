@@ -1,5 +1,5 @@
 # Fullstack Web App - Hackernews Clone
-React + Apollo + GraphQL + Prisma (tutorial link: https://www.howtographql.com/react-apollo/1-getting-started/)
+React + Apollo + GraphQL + Prisma ([tutorial link](https://www.howtographql.com/react-apollo/1-getting-started/))
 
 Concepts explored / Features built: <br><br>
 GraphQL: Queries, Mutations, Resolvers<br>
